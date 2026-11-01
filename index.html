@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joel Lal | CS &amp; AI Undergraduate &amp; Software Developer</title>
+  <meta name="description" content="Portfolio of Joel Lal (Bluwarrior) — Computer Science &amp; Artificial Intelligence undergraduate at Murdoch University Dubai. Research in multi-agent systems, open-source audio DSP, workflow engines, and cybersecurity.">
+  <meta name="author" content="Joel Lal">
+  <meta property="og:title" content="Joel Lal | Developer Portfolio">
+  <meta property="og:description" content="CS &amp; AI Undergraduate at Murdoch University Dubai. Open source creator, multi-agent AI researcher, and builder.">
+  <meta property="og:url" content="https://bluwarrior.github.io">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b0f19">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --card-hover: #172033;
+      --border: #1e293b;
+      --border-hover: #38bdf8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.18);
+      --accent-glow-strong: rgba(56, 189, 248, 0.35);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --tag-bg: rgba(56, 189, 248, 0.08);
+      --tag-border: rgba(56, 189, 248, 0.22);
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.25rem;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* Header & Hero */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding-top: 1rem;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 24px var(--accent-glow-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--accent);
+      user-select: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 32px rgba(56, 189, 248, 0.5);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid var(--tag-border);
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.9); }
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      font-weight: 400;
+    }
+
+    .university {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Action Cards Row (LinkedIn, GitHub, FXcodez) */
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .action-card {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .action-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .action-card:hover {
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .action-card:hover::before {
+      opacity: 1;
+    }
+
+    .action-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      fill: currentColor;
+      color: var(--accent);
+      transition: transform 0.2s;
+    }
+
+    .action-card:hover .action-icon {
+      transform: scale(1.1);
+    }
+
+    .action-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .action-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .action-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .section-title svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+    }
+
+    /* Callout Card (Research Paper) */
+    .callout-card {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border: 1px solid var(--tag-border);
+      border-radius: 14px;
+      padding: 1.6rem;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      border-left: 4px solid var(--accent);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .callout-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 28px var(--accent-glow);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .callout-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-venue {
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 500;
+      margin-bottom: 0.85rem;
+    }
+
+    .callout-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Projects 2x2 Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .project-card:hover {
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px var(--accent-glow);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .project-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .project-link-icon {
+      color: var(--accent);
+      opacity: 0.7;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover .project-link-icon {
+      opacity: 1;
+      transform: translate(2px, -2px);
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .tag.highlight {
+      background: var(--tag-bg);
+      border-color: var(--tag-border);
+      color: var(--accent);
+    }
+
+    /* Contact & QR Split Section */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .contact-card, .qr-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-card:hover, .qr-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0b0f19;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--accent);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* QR Card */
+    .qr-card {
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+    }
+
+    .qr-image-wrapper {
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      display: inline-flex;
+    }
+
+    .qr-image {
+      width: 120px;
+      height: 120px;
+      display: block;
+    }
+
+    .qr-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .qr-download {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .qr-download:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      padding: 2rem 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header / Hero -->
+    <header>
+      <div class="avatar" title="Joel Lal">JL</div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Computer Science &amp; AI Undergraduate</span>
+      </div>
+      <h1>Joel Lal</h1>
+      <p class="subtitle">
+        Undergraduate in Computer Science &amp; Artificial Intelligence at <span class="university">Murdoch University Dubai</span>. Passionate about multi-agent systems, audio DSP, system automation, and intelligent cybersecurity sandboxes.
+      </p>
+    </header>
+
+    <!-- Prominent Action Cards (LinkedIn, GitHub, FXcodez) -->
+    <section>
+      <div class="action-grid">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/joel-lal-781b242b8" target="_blank" rel="noopener noreferrer" class="action-card">
+          <svg class="action-icon" viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .88.72 1.6 1.61 1.6.89 0 1.61-.72 1.61-1.6 0-.89-.72-1.61-1.61-1.61Z"/>
+          </svg>
+          <div class="action-text">
+            <span class="action-title">LinkedIn</span>
+            <span class="action-sub">in/joel-lal-781b242b8</span>
+          </div>
+        </a>
+
+        <!-- GitHub Profile -->
+        <a href="https://github.com/Bluwarrior" target="_blank" rel="noopener noreferrer" class="action-card">
+          <svg class="action-icon" viewBox="0 0 24 24">
+            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+          </svg>
+          <div class="action-text">
+            <span class="action-title">GitHub</span>
+            <span class="action-sub">@Bluwarrior</span>
+          </div>
+        </a>
+
+        <!-- Open Source Org FXcodez -->
+        <a href="https://github.com/FXcodez" target="_blank" rel="noopener noreferrer" class="action-card">
+          <svg class="action-icon" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          <div class="action-text">
+            <span class="action-title">FXcodez</span>
+            <span class="action-sub">Open Source Org</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Research Callout Card -->
+    <section>
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        <span>Research &amp; Publications</span>
+      </div>
+
+      <div class="callout-card">
+        <div class="badge-pill">ITT 2026 Conference Paper</div>
+        <h2 class="callout-title">Adaptive Multi-Agent Framework for Personalised Learning Support</h2>
+        <div class="callout-venue">Presented at Higher Colleges of Technology (HCT Dubai) &bull; ITT 2026</div>
+        <p class="callout-desc">
+          Authored an innovative multi-agent architecture leveraging autonomous collaborative agents to diagnose individual learning trajectories, dynamically calibrate instructional difficulty, and deliver real-time personalized tutoring and contextual scaffolding.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Projects 2x2 Grid -->
+    <section>
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+          <polyline points="2 17 12 22 22 17"/>
+          <polyline points="2 12 12 17 22 12"/>
+        </svg>
+        <span>Featured Projects</span>
+      </div>
+
+      <div class="projects-grid">
+        <!-- FXsonic -->
+        <a href="https://github.com/FXcodez/FXsonic" target="_blank" rel="noopener noreferrer" class="project-card" style="text-decoration: none;">
+          <div>
+            <div class="project-header">
+              <span class="project-name">
+                FXsonic
+              </span>
+              <svg class="project-link-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+            <p class="project-desc" style="margin-top: 0.6rem;">
+              High-performance audio processing suite and algorithmic manipulation pipeline built with Python. Provides signal transforms, batch audio normalization, and DSP filtering.
+            </p>
+          </div>
+          <div class="project-tags">
+            <span class="tag highlight">Python</span>
+            <span class="tag">Audio DSP</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">FXcodez</span>
+          </div>
+        </a>
+
+        <!-- FXbatch -->
+        <a href="https://github.com/FXcodez/FXbatch" target="_blank" rel="noopener noreferrer" class="project-card" style="text-decoration: none;">
+          <div>
+            <div class="project-header">
+              <span class="project-name">
+                FXbatch
+              </span>
+              <svg class="project-link-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+            <p class="project-desc" style="margin-top: 0.6rem;">
+              Automated batch workflow execution engine designed for reliable developer pipelines, scheduled multi-file conversions, and background system orchestration.
+            </p>
+          </div>
+          <div class="project-tags">
+            <span class="tag highlight">Python</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Workflow Engine</span>
+            <span class="tag">CLI</span>
+          </div>
+        </a>
+
+        <!-- Breachpoint -->
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <span class="project-name">
+                Breachpoint
+              </span>
+              <span class="tag highlight" style="font-size: 0.68rem;">AI &amp; SecOps</span>
+            </div>
+            <p class="project-desc" style="margin-top: 0.6rem;">
+              Cybersecurity Capture-The-Flag (CTF) training sandbox paired with <strong>BreachBot AI</strong> — an autonomous simulated attacker and guided defense tutor for interactive threat modeling.
+            </p>
+          </div>
+          <div class="project-tags">
+            <span class="tag highlight">Cybersecurity</span>
+            <span class="tag">CTF Sandbox</span>
+            <span class="tag">BreachBot AI</span>
+            <span class="tag">Red Team</span>
+          </div>
+        </div>
+
+        <!-- HandFlow Engine -->
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <span class="project-name">
+                HandFlow Engine
+              </span>
+              <span class="tag highlight" style="font-size: 0.68rem;">Computer Vision</span>
+            </div>
+            <p class="project-desc" style="margin-top: 0.6rem;">
+              Touchless human-computer interface operating via real-time camera tracking. Uses Contrast Limited Adaptive Histogram Equalization (CLAHE) for robust gesture recognition under variable illumination.
+            </p>
+          </div>
+          <div class="project-tags">
+            <span class="tag highlight">Computer Vision</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">CLAHE</span>
+            <span class="tag">Human-Computer Interface</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect & QR Split Card -->
+    <section>
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span>Get in Touch</span>
+      </div>
+
+      <div class="bottom-grid">
+        <!-- Contact Buttons -->
+        <div class="contact-card">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">Let's Connect</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+              I'm open to software engineering internships, AI research partnerships, and open-source collaborations. Reach out directly via email or WhatsApp.
+            </p>
+          </div>
+          <div class="contact-buttons">
+            <a href="mailto:joellxk@gmail.com" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>Email: joellxk@gmail.com</span>
+            </a>
+            <a href="https://wa.me/971501712084" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.36 7.33 9.08 7.4 8.84 7.66C8.61 7.92 7.96 8.53 7.96 9.77C7.96 11.01 8.87 12.21 9 12.38C9.13 12.55 10.76 15.06 13.25 16.14C13.84 16.4 14.31 16.55 14.66 16.66C15.26 16.85 15.8 16.82 16.24 16.76C16.72 16.69 17.72 16.15 17.93 15.57C18.14 14.99 18.14 14.5 18.08 14.4C18.01 14.3 17.85 14.23 17.6 14.11C17.36 13.99 16.16 13.4 15.94 13.32C15.72 13.24 15.56 13.2 15.4 13.44C15.23 13.69 14.77 14.23 14.63 14.39C14.49 14.55 14.35 14.57 14.11 14.45C13.86 14.32 12.82 13.98 11.59 12.89C10.64 12.04 9.99 11 9.87 10.78C9.74 10.55 9.85 10.43 9.98 10.31C10.09 10.2 10.23 10.02 10.35 9.88C10.47 9.74 10.51 9.64 10.59 9.47C10.67 9.31 10.63 9.17 10.57 9.05C10.51 8.93 10.05 7.8 9.86 7.34C9.67 6.89 9.48 6.95 9.34 6.94C9.21 6.94 9.05 6.94 8.89 6.94"/>
+              </svg>
+              <span>WhatsApp: +971 50 171 2084</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Scan QR Card -->
+        <div class="qr-card">
+          <div class="qr-image-wrapper">
+            <img src="portfolio_qr.png" alt="QR Code for bluwarrior.github.io" class="qr-image">
+          </div>
+          <div>
+            <div class="qr-caption">Quick Scan &bull; Mobile Portfolio</div>
+            <a href="portfolio_qr.png" download="Joel_Lal_Portfolio_QR.png" class="qr-download">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Asset for CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> &bull; Fast, zero-dependency static build</div>
+      <div>Designed &amp; Developed by Joel Lal (<a href="https://github.com/Bluwarrior" target="_blank" rel="noopener noreferrer">@Bluwarrior</a>) &bull; Murdoch University Dubai</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
