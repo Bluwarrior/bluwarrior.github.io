@@ -133,32 +133,32 @@ Each modal dialog dynamically displays:
 ### Project 1: FXsonic
 - **ID**: `fxsonic`
 - **Display Name**: FXsonic
-- **Category Eyebrow**: 01 / Audio Engine & DSP
+- **Category Eyebrow**: 01 / Audio Engine & Desktop GUI
 - **Project Origin**: Open Source Organization (FXcodez)
 - **Status**: Active Open Source
 - **Status Type**: `accent`
-- **Summary**: High-performance audio processing suite and algorithmic manipulation pipeline built in Python, optimizing batch normalization and real-time DSP filtering.
+- **Summary**: High-performance audio processing suite and graphical DSP manipulation application packaged as a standalone Windows executable (.exe), featuring real-time waveform visualization, signal filtering, and batch audio normalization.
 - **Architecture Highlights**:
-  - Modular Python routines engineered for multi-format audio conversion and stream manipulation.
-  - Signal normalization algorithms designed to minimize audio buffer latency during batch passes.
-  - Standardized CLI parameters and automated pipeline integration across organizational repositories.
-- **Tech Stack**: Python, Audio DSP, NumPy, CLI Architecture, Open Source
+  - Standalone desktop GUI application compiled into a zero-dependency Windows executable (.exe) for immediate local deployment without Python runtime dependencies.
+  - Non-blocking worker threading decoupling CPU-intensive audio DSP filters and batch normalization passes from the interactive GUI thread.
+  - Real-time audio waveform visualization and stream manipulation engine optimized for minimal buffer latency.
+- **Tech Stack**: Python, Desktop GUI, Audio DSP, NumPy, Multi-Threading, Standalone Executable (.exe), Open Source
 - **Repository URL**: `https://github.com/FXcodez/FXsonic`
 - **Action Footer Notice**: None (outbound button to GitHub repository)
 
 ### Project 2: FXbatch
 - **ID**: `fxbatch`
 - **Display Name**: FXbatch
-- **Category Eyebrow**: 02 / System Automation
+- **Category Eyebrow**: 02 / Desktop Automation GUI
 - **Project Origin**: Open Source Organization (FXcodez)
 - **Status**: Active Open Source
 - **Status Type**: `accent`
-- **Summary**: Automated batch workflow execution engine designed for scheduled multi-file conversions, system background orchestration, and developer automation.
+- **Summary**: Automated batch workflow desktop application packaged as a standalone Windows executable (.exe), engineered for multi-file format conversions, scheduled background processing, and real-time job execution telemetry.
 - **Architecture Highlights**:
-  - Core batch automation engine featuring robust exception handling and automated rollback states.
-  - Data integrity validation routines preventing data loss during bulk asset conversions.
-  - Modular configuration schemas allowing user-defined transformation rules and logging outputs.
-- **Tech Stack**: Python, Automation, Threading, CLI Tooling, Open Source
+  - Standalone desktop application packaged as a self-contained Windows executable (.exe) requiring zero local environment configuration.
+  - Multi-threaded background execution engine featuring asynchronous job queues, automated rollback states, and non-blocking desktop GUI responsiveness during bulk processing.
+  - Visual status monitor providing real-time job execution telemetry, active queue inspection, and data integrity verification.
+- **Tech Stack**: Python, Desktop GUI, System Automation, Multi-Threading, Standalone Executable (.exe), Open Source
 - **Repository URL**: `https://github.com/FXcodez/FXbatch`
 - **Action Footer Notice**: None (outbound button to GitHub repository)
 

@@ -406,7 +406,7 @@ h1,h2,h3,p{margin:0}
 .wave{display:flex;align-items:center;gap:3px;height:150px}
 .wave span{flex:1;min-height:6px;border-radius:2px;background:#8fa0ff;min-width:2px}
 
-/* FXbatch terminal */
+/* FXbatch desktop status monitor */
 .console{background:#05080f;border:1px solid var(--line-soft);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:5px;overflow:hidden}
 .console p{font-family:var(--mono);font-size:12px;line-height:1.55;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .console .c-cmd{color:var(--accent-soft)}
@@ -924,12 +924,12 @@ h1,h2,h3,p{margin:0}
         <!-- FXsonic (Standardized Architecture Modal) -->
         <article class="card card--accent card--interactive" data-project="fxsonic" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open FXsonic specifications and architecture details" data-reveal style="--d:.04s">
           <div class="card__head">
-            <p class="micro">Audio Engine &amp; DSP</p>
+            <p class="micro">Audio Engine &amp; Desktop GUI</p>
             <div class="card__title-row">
               <h3>FXsonic</h3>
               <span class="arrow-btn" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="M9 21H3v-6"/><path d="m3 21 7-7"/></svg></span>
             </div>
-            <p class="card__desc">High-performance audio processing suite and algorithmic manipulation pipeline built in Python. Signal transforms, batch audio normalization, and DSP filtering in one CLI.</p>
+            <p class="card__desc">High-performance audio processing suite and graphical DSP manipulation application packaged as a standalone desktop GUI application (.exe). Signal transforms, batch audio normalization, and non-blocking playback.</p>
           </div>
           <div class="card__foot">
             <div class="wave-label micro"><span>Signal preview</span><span>Waveform / normalized</span></div>
@@ -937,7 +937,8 @@ h1,h2,h3,p{margin:0}
             <div class="tags">
               <span class="chip chip--accent">Python</span>
               <span class="chip chip--accent">Audio DSP</span>
-              <span class="chip chip--accent">Open Source</span>
+              <span class="chip chip--accent">Desktop GUI</span>
+              <span class="chip chip--accent">Standalone .exe</span>
               <span class="chip chip--accent">FXcodez</span>
             </div>
           </div>
@@ -946,26 +947,26 @@ h1,h2,h3,p{margin:0}
         <!-- FXbatch (Standardized Architecture Modal) -->
         <article class="card card--interactive" data-project="fxbatch" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open FXbatch specifications and architecture details" data-reveal style="--d:.1s">
           <div class="card__head">
-            <p class="micro">System Automation</p>
+            <p class="micro">Desktop Automation GUI</p>
             <div class="card__title-row">
               <h3>FXbatch</h3>
               <span class="arrow-btn" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="M9 21H3v-6"/><path d="m3 21 7-7"/></svg></span>
             </div>
-            <p class="card__desc">Automated batch workflow execution engine for reliable developer pipelines, scheduled multi-file conversions, and background system orchestration.</p>
+            <p class="card__desc">Automated batch processing desktop GUI application engineered for scheduled multi-file conversions, worker thread queue management, and real-time execution telemetry.</p>
           </div>
           <div class="card__foot">
             <div class="console" aria-hidden="true">
-              <p class="c-cmd">$ fxbatch run --watch ./inbox</p>
-              <p class="c-ok">ok  128 files normalized</p>
-              <p class="c-dim">...  queue idle / 0 errors</p>
+              <p class="c-cmd">App Status :: FXbatch Engine [Active]</p>
+              <p class="c-ok">Task Complete: 128 assets processed</p>
+              <p class="c-dim">Worker Threads: 4 active / Queue idle</p>
             </div>
             <div class="stats" aria-hidden="true">
-              <div class="stat"><b>128</b><span>Jobs</span></div>
+              <div class="stat"><b>128</b><span>Jobs Done</span></div>
               <div class="stat"><b>0</b><span>Errors</span></div>
-              <div class="stat"><b>2.4s</b><span>Avg run</span></div>
+              <div class="stat"><b>2.4s</b><span>Avg Task</span></div>
             </div>
             <div class="tags">
-              <span class="chip">Python</span><span class="chip">Automation</span><span class="chip">CLI</span>
+              <span class="chip">Python</span><span class="chip">System Automation</span><span class="chip">Desktop GUI</span><span class="chip">Standalone .exe</span>
             </div>
           </div>
         </article>
@@ -1187,34 +1188,34 @@ h1,h2,h3,p{margin:0}
     fxsonic: {
       id: "fxsonic",
       name: "FXsonic",
-      category: "01 / Audio Engine & DSP",
+      category: "01 / Audio Engine & Desktop GUI",
       origin: "Open Source Organization (FXcodez)",
       status: "Active Open Source",
       statusType: "accent",
-      summary: "High-performance audio processing suite and algorithmic manipulation pipeline built in Python, optimizing batch normalization and real-time DSP filtering.",
+      summary: "High-performance audio processing suite and graphical DSP manipulation application packaged as a standalone Windows executable (.exe), featuring real-time waveform visualization, signal filtering, and batch audio normalization.",
       highlights: [
-        "Modular Python routines engineered for multi-format audio conversion and stream manipulation.",
-        "Signal normalization algorithms designed to minimize audio buffer latency during batch passes.",
-        "Standardized CLI parameters and automated pipeline integration across organizational repositories."
+        "Standalone desktop GUI application compiled into a zero-dependency Windows executable (.exe) for immediate local deployment without Python runtime dependencies.",
+        "Non-blocking worker threading decoupling CPU-intensive audio DSP filters and batch normalization passes from the interactive GUI thread.",
+        "Real-time audio waveform visualization and stream manipulation engine optimized for minimal buffer latency."
       ],
-      techStack: ["Python", "Audio DSP", "NumPy", "CLI Architecture", "Open Source"],
+      techStack: ["Python", "Desktop GUI", "Audio DSP", "NumPy", "Multi-Threading", "Standalone Executable (.exe)", "Open Source"],
       repoUrl: "https://github.com/FXcodez/FXsonic",
       statusNotice: null
     },
     fxbatch: {
       id: "fxbatch",
       name: "FXbatch",
-      category: "02 / System Automation",
+      category: "02 / Desktop Automation GUI",
       origin: "Open Source Organization (FXcodez)",
       status: "Active Open Source",
       statusType: "accent",
-      summary: "Automated batch workflow execution engine designed for scheduled multi-file conversions, system background orchestration, and developer automation.",
+      summary: "Automated batch workflow desktop application packaged as a standalone Windows executable (.exe), engineered for multi-file format conversions, scheduled background processing, and real-time job execution telemetry.",
       highlights: [
-        "Core batch automation engine featuring robust exception handling and automated rollback states.",
-        "Data integrity validation routines preventing data loss during bulk asset conversions.",
-        "Modular configuration schemas allowing user-defined transformation rules and logging outputs."
+        "Standalone desktop application packaged as a self-contained Windows executable (.exe) requiring zero local environment configuration.",
+        "Multi-threaded background execution engine featuring asynchronous job queues, automated rollback states, and non-blocking desktop GUI responsiveness during bulk processing.",
+        "Visual status monitor providing real-time job execution telemetry, active queue inspection, and data integrity verification."
       ],
-      techStack: ["Python", "Automation", "Threading", "CLI Tooling", "Open Source"],
+      techStack: ["Python", "Desktop GUI", "System Automation", "Multi-Threading", "Standalone Executable (.exe)", "Open Source"],
       repoUrl: "https://github.com/FXcodez/FXbatch",
       statusNotice: null
     },
