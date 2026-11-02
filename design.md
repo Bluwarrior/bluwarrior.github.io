@@ -64,7 +64,9 @@ Each modal dialog dynamically displays:
 
 ### 2.3 Mobile & Responsive Navigation
 - **Navigation Toggle & Drawer**: Below 1180px, the header displays an accessible toggle button (`#navToggle`) and slide-over navigation drawer (`#mobileNav`).
-- **Touch Target Floor**: All interactive buttons adhere to the WCAG 44×44px minimum touch target size.
+- **Opaque Dark Drawer Canvas**: The drawer container (`.mobile-nav`) uses the solid, 100% opaque base canvas color (`#090D16` / `--bg`) without translucent backdrop filters, completely occluding underlying page headings, hero text, and cards when the drawer is open. Dynamically anchors below the sticky header (`calc(100dvh - headerHeight)`) across mobile viewports without gaps.
+- **Elevated Button Surface & Directional Chevrons**: Each mobile navigation item (`.mobile-nav a`) renders as an elevated midnight-navy card (`#0C1220` / `--bg-2`) with subtle light borders (`rgba(255, 255, 255, 0.08)`), generous touch padding (18px vertical by 20px horizontal, exceeding WCAG 44x44px floor), monospace high-contrast typography (`#F1F4FA`), and an aligned directional chevron arrow indicator on the right.
+- **Immediate Mobile Touch Feedback**: Active (`:active`) and touch-tap states provide immediate sensory confirmation: background transitions to periwinkle accent tint (`rgba(124, 140, 255, 0.22)`), border brightens to primary accent (`#7C8CFF`), typography illuminates to `#FFFFFF`, and a press-down scale transformation (`scale(0.98)`) provides tactile feedback on tap or hold.
 
 ---
 
