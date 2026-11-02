@@ -59,7 +59,7 @@ Each modal dialog dynamically displays:
 6. **Tech Stack & Protocols Chips**: Specific tools, models, frameworks, and methodologies.
 7. **Action Footer**:
    - For open-source items: Prominent primary button linking to GitHub.
-   - For peer-reviewed research: Structured badge indicating conference presentation and forthcoming proceedings publication.
+   - For peer-reviewed research: Prominent primary action button linking directly to open or download the complete research paper PDF (`Personalized_Agent_Final.pdf`), accompanied by the conference status notice.
    - For internal/academic prototypes: Styled badge indicating prototype availability upon request.
 
 ### 2.3 Mobile & Responsive Navigation
@@ -72,13 +72,22 @@ Each modal dialog dynamically displays:
 
 ### 3.1 Landing Page (`index.html`)
 - **Research Section**:
-  - The research card (`Adaptive Multi-Agent Framework for Personalised Learning Support`) must be **interactive** (`card--interactive`, `role="button"`, `tabindex="0"`, `data-research="itt2026"`).
-  - Hovering triggers elevated card styling (`transform: translateY(-4px)`, accent border glow).
-  - Clicking or pressing `Enter`/`Space` opens the modal dialog with the complete research breakdown, agent pipeline details, and conference publication info.
+  - The research card (`Adaptive Multi-Agent Framework for Personalised Learning Support`) is **interactive** (`paper--interactive`, `role="button"`, `tabindex="0"`, `data-research="itt2026"`).
+  - The expand arrow button inside the paper title row is strictly aligned to the top-right corner of the title block.
+  - The side visual box labeled "Agent topology" strictly reflects the four components:
+    1. **Learner Analysis Agent**: Analyzes misconceptions, error patterns, and recommended difficulty.
+    2. **Assessment Agent**: Evaluates response score, feedback, and selects next question.
+    3. **Tutor / Remediation Agent**: Delivers targeted scaffolding, dynamically skipped during challenge actions.
+    4. **Deterministic Decision Engine**: Executes mastery update rule and action routing across explain, practice, remediate, and challenge.
+  - Prominent direct action button on the card linking directly to open or download `Personalized_Agent_Final.pdf`.
+  - Clicking elsewhere on the card or pressing `Enter`/`Space` opens the modal dialog with the complete research breakdown, 4-component agent topology details, empirical benchmarks, and conference publication info.
 - **Featured Engineering Section**: Displays the 4 primary projects (FXsonic, FXbatch, Breachpoint, HandFlow Engine).
   - **FXsonic & FXbatch**: Clicking opens their respective modal preview, with an outbound link to GitHub inside the modal footer.
   - **Breachpoint & HandFlow Engine**: Clicking opens their respective modal dialogs detailing internal architecture and prototype status.
-- **Section Footer**: Below the four project cards, the button `Explore All Projects & Architecture Specs →` navigates to `projects.html`.
+- **Section Footer**: Below the four project cards, the button navigates to `projects.html`.
+- **Contact & Footer Section**:
+  - Dedicated **Curriculum Vitae / Resume** hub replacing legacy QR scan card.
+  - Dual action buttons: "Download 1-Page CV (PDF)" (`Joel_Lal_Resume_1Page_CareerFair.pdf`) and "Download Full 2-Page CV (PDF)" (`Joel_Lal_Resume_2Page_CareerFair.pdf`).
 
 ### 3.2 Projects Catalogue Page (`projects.html`)
 - **Visual Identity**: Full parity with `index.html` (same sticky header, navigation tokens, background gradients, typography, and footer).
@@ -101,17 +110,19 @@ Each modal dialog dynamically displays:
 - **Origin Badge**: ITT 2026 Conference Paper
 - **Authorship**: Co-Author & Oral Presenter
 - **Summary**:
-  An autonomous multi-agent orchestration architecture utilizing specialized collaborative LLM agents to dynamically evaluate student learning trajectories, calibrate problem difficulty in real time, and deliver adaptive pedagogical scaffolding without solution leakage.
+  A lightweight multi-agent framework for personalised learning support in which a deterministic, rule-based decision engine uses the learner's current state to select the next instructional action and selectively activate only the agents required for it, minimizing resource usage and token latency.
 - **Technical Architecture & Highlights**:
-  - **Tri-Agent Modular Topology**:
-    - **Agent 01 (Trajectory Diagnosis)**: Analyzes real-time user code submissions and query histories to map competency gaps against standard knowledge graphs.
-    - **Agent 02 (Difficulty Calibration)**: Dynamically adjusts task complexity parameters and problem constraints based on cognitive load indicators and error frequencies.
-    - **Agent 03 (Contextual Scaffolding)**: Generates progressive, Socratic hints and conceptual nudges designed to support problem-solving while strictly preventing direct solution disclosure.
-  - **Prompt Strategy & Task Decomposition**: Systematically evaluated chain-of-thought, role-constrained, and least-to-most prompting techniques across multiple foundation models to minimize inter-agent latency.
-  - **Hallucination Mitigation**: Implemented strict cross-agent state verification where the Scaffolding Agent cross-references the Diagnosis Agent's state before emitting responses to the student.
-  - **Empirical Evaluation**: Conducted benchmark testing across varying student cohort simulation scenarios to measure pedagogical relevance, intervention accuracy, and response consistency.
-- **Tech Stack & Methodologies**: Multi-Agent Orchestration, Foundation LLMs, Prompt Decomposition, Socratic Scaffolding, Adaptive Learning Systems, Educational Data Mining
-- **Action Footer Notice**: Presented at HCT Dubai — Official Conference Proceedings Currently in Publication
+  - **Four-Component Topology**:
+    - **Learner Analysis Agent**: Analyzes student learning misconceptions, error patterns, and calculates recommended difficulty progression based on tracked learning history.
+    - **Assessment Agent**: Evaluates learner response accuracy, assigns response scores, generates granular pedagogical feedback, and selects the next assessment item.
+    - **Tutor / Remediation Agent**: Provides targeted Socratic scaffolding and conceptual remediation, dynamically skipped during challenge actions to conserve compute.
+    - **Deterministic Decision Engine**: Executes the mastery update rule (initial mastery 0.50) and state-based action routing across four instructional modes: explain, practice, remediate, and challenge.
+  - **Deterministic State-Based Routing**: Replaces unconstrained LLM routing with deterministic code execution that tracks mastery updates, error counts, and recent misconceptions to route actions across four modes without latency penalties.
+  - **Selective Agent Activation**: Eliminates redundant multi-agent invocations by skipping the Tutor/Remediation agent during challenge actions, achieving significant reductions in LLM calls, token usage, and latency compared to fixed multi-agent baselines.
+  - **Empirical Benchmark & Evaluation**: Validated on 84 evaluated interactions across scripted learner profiles (strong, moderate, weak mastery) using Gemma 3 4B execution model and Gemma 3 12B automated LLM judge on AMD Ryzen 9 9950X / RTX 4070 SUPER hardware.
+- **Research Paper PDF**: `Personalized_Agent_Final.pdf` (available via direct open/download buttons on card and modal dialog)
+- **Tech Stack & Methodologies**: Multi-Agent Orchestration, Deterministic Decision Engine, Selective Agent Activation, Foundation LLMs (Gemma 3), Educational Scaffolding, Automated LLM Judge
+- **Action Footer Notice**: Presented at Higher Colleges of Technology (HCT Dubai) — Official Conference Proceedings In Publication
 
 ---
 
@@ -200,9 +211,9 @@ Each modal dialog dynamically displays:
 ### Project 6: Space42 AI Job Portal
 - **ID**: `space42`
 - **Display Name**: Space42 AI Job Portal
-- **Category Eyebrow**: 06 / AI Recruitment & Web Security
+- **Category Eyebrow**: 06 / Asynchronous Prototype
 - **Project Origin**: GDG Hackathon (University of Birmingham Dubai)
-- **Status**: Competition Prototype (Award Finalist)
+- **Status**: Hackathon Project
 - **Status Type**: `accent`
 - **Summary**: AI-powered recruitment engine featuring role-based candidate routing, asynchronous resume parsing, and a secure upload gateway.
 - **Architecture Highlights**:
@@ -211,4 +222,4 @@ Each modal dialog dynamically displays:
   - Automated candidate assessment workflow evaluating candidate qualifications against dynamic job specifications.
 - **Tech Stack**: Python, Flet UI, SQLite, Asyncio / Worker Threads, Input Sanitization
 - **Repository URL**: None
-- **Action Footer Notice**: Hackathon Competition Prototype // Award Finalist
+- **Action Footer Notice**: GDG Hackathon (University of Birmingham Dubai) // Asynchronous Prototype

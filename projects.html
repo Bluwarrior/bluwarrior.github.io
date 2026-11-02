@@ -679,8 +679,8 @@ h1,h2,h3,p{margin:0}
       <article class="card card--interactive" data-project="space42" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Space42 AI Job Portal specifications" data-reveal style="--d:.24s">
         <div class="card__head">
           <div class="card__eyebrow-row">
-            <p class="micro">AI Recruitment &amp; Web Security</p>
-            <span class="chip chip--accent">GDG Finalist</span>
+            <p class="micro">Asynchronous Prototype</p>
+            <span class="chip chip--accent">Hackathon Project</span>
           </div>
           <div class="card__title-row">
             <h3>Space42 AI Job Portal</h3>
@@ -695,7 +695,7 @@ h1,h2,h3,p{margin:0}
                 <svg class="icon" viewBox="0 0 24 24" style="width:12px;height:12px;color:var(--accent);"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 <span>airlock.py :: Gate Armored</span>
               </div>
-              <span class="airlock__shield">● Sanitized</span>
+              <span class="airlock__shield">✓ Sanitized</span>
             </div>
             <div class="airlock__body">
               <div class="airlock__row active"><span>&gt;</span><span>Prompt injection filter: ARMED</span></div>
@@ -704,7 +704,7 @@ h1,h2,h3,p{margin:0}
             </div>
             <div class="airlock__foot">
               <span class="airlock__workers">Async I/O non-blocking</span>
-              <span class="airlock__status">GDG Finalist</span>
+              <span class="airlock__status">Hackathon Project</span>
             </div>
           </div>
           <div class="tags">
@@ -759,16 +759,18 @@ h1,h2,h3,p{margin:0}
       origin: "ITT 2026 Conference Paper",
       status: "Peer-Reviewed / In Publication",
       statusType: "green",
-      summary: "An autonomous multi-agent orchestration architecture utilizing specialized collaborative LLM agents to dynamically evaluate student learning trajectories, calibrate problem difficulty in real time, and deliver adaptive pedagogical scaffolding without solution leakage.",
+      paperUrl: "Personalized_Agent_Final.pdf",
+      summary: "A lightweight multi-agent framework for personalised learning support where a deterministic, rule-based decision engine uses the learner's state to select instructional actions and selectively activate only the required agents, minimizing resource consumption.",
       highlights: [
-        "Tri-Agent Modular Topology: Agent 01 (Trajectory Diagnosis) maps competency gaps against standardized knowledge graphs; Agent 02 (Difficulty Calibration) dynamically adjusts problem complexity based on cognitive load; Agent 03 (Contextual Scaffolding) delivers progressive, Socratic hints without revealing direct answers.",
-        "Prompt Strategy & Task Decomposition: Systematically evaluated chain-of-thought, role-constrained, and least-to-most prompting techniques across foundation models to minimize inter-agent coordination latency.",
-        "Hallucination Mitigation: Implemented strict cross-agent state verification where the Scaffolding Agent cross-references the Diagnosis Agent's evaluation state before emitting pedagogical feedback.",
-        "Empirical Evaluation: Benchmark simulations across diverse student cohort profiles demonstrated high pedagogical relevance, intervention precision, and response consistency."
+        "Learner Analysis Agent: Analyzes student learning misconceptions, error patterns, and calculates recommended difficulty level based on historical progress.",
+        "Assessment Agent: Evaluates learner response accuracy, assigns response scores, generates pedagogical feedback, and selects the next assessment question.",
+        "Tutor / Remediation Agent: Delivers targeted scaffolding and remediation explanations, dynamically skipped during challenge actions to conserve compute.",
+        "Deterministic Decision Engine: Executes mastery update rules (initial mastery 0.50) and state-based action routing across four modes: explain, practice, remediate, and challenge.",
+        "Empirical Benchmark & LLM Evaluation: Paired comparison across 84 evaluated interactions using Gemma 3 4B execution model and Gemma 3 12B automated LLM judge, demonstrating significant reductions in LLM calls, token usage, and latency."
       ],
-      techStack: ["Multi-Agent Orchestration", "Foundation LLMs", "Prompt Decomposition", "Socratic Scaffolding", "Adaptive Learning", "Educational Data Mining"],
+      techStack: ["Multi-Agent Orchestration", "Deterministic Decision Engine", "Selective Agent Activation", "Foundation LLMs (Gemma 3)", "Educational Scaffolding", "Automated LLM Judge"],
       repoUrl: null,
-      statusNotice: "Presented at HCT Dubai — Official Conference Proceedings Currently in Publication"
+      statusNotice: "Presented at Higher Colleges of Technology (HCT Dubai) — Official Conference Proceedings In Publication"
     },
     fxsonic: {
       id: "fxsonic",
@@ -858,9 +860,9 @@ h1,h2,h3,p{margin:0}
     space42: {
       id: "space42",
       name: "Space42 AI Job Portal",
-      category: "06 / AI Recruitment & Web Security",
+      category: "06 / Asynchronous Prototype",
       origin: "GDG Hackathon (University of Birmingham Dubai)",
-      status: "Competition Prototype (Award Finalist)",
+      status: "Hackathon Project",
       statusType: "accent",
       summary: "AI-powered recruitment engine featuring role-based candidate routing, asynchronous resume parsing, and a secure upload gateway.",
       highlights: [
@@ -870,7 +872,7 @@ h1,h2,h3,p{margin:0}
       ],
       techStack: ["Python", "Flet UI", "SQLite", "Asyncio / Worker Threads", "Input Sanitization"],
       repoUrl: null,
-      statusNotice: "Hackathon Competition Prototype // Award Finalist"
+      statusNotice: "GDG Hackathon (University of Birmingham Dubai) // Asynchronous Prototype"
     }
   };
 
@@ -897,7 +899,13 @@ h1,h2,h3,p{margin:0}
     }).join("");
 
     var actionHtml = "";
-    if (p.repoUrl) {
+    if (p.paperUrl) {
+      actionHtml = '<a class="btn btn--primary" href="' + escapeHtml(p.paperUrl) + '" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Read Research Paper (PDF)</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>' +
+        '<a class="btn btn--ghost" href="' + escapeHtml(p.paperUrl) + '" download="Personalized_Agent_Final.pdf"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Download PDF</span></a>';
+      if (p.statusNotice) {
+        actionHtml += '<div class="modal-badge-notice" style="margin-top:12px;width:100%"><span class="badge__dot" style="background:' + dotColor + ';"></span><span>' + escapeHtml(p.statusNotice) + '</span></div>';
+      }
+    } else if (p.repoUrl) {
       actionHtml = '<a class="btn btn--primary" href="' + escapeHtml(p.repoUrl) + '" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><span>View Repository on GitHub</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>';
     } else {
       actionHtml = '<div class="modal-badge-notice"><span class="badge__dot" style="background:' + dotColor + ';"></span><span>' + escapeHtml(p.statusNotice || "Internal Prototype") + '</span></div>';
@@ -1007,10 +1015,12 @@ h1,h2,h3,p{margin:0}
   document.querySelectorAll("[data-project]").forEach(function (el) {
     var id = el.getAttribute("data-project");
     el.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
       e.preventDefault();
       openModal(id, el);
     });
     el.addEventListener("keydown", function (e) {
+      if (e.target.closest("a")) return;
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         openModal(id, el);

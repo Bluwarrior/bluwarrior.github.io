@@ -259,7 +259,7 @@ h1,h2,h3,p{margin:0}
     radial-gradient(70% 130% at 3% 0%,rgba(124,140,255,.13),transparent 62%),
     var(--bg-2);
   display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(24px,3.4vw,44px);
-  align-items:center;padding:clamp(22px,3vw,34px);
+  align-items:start;padding:clamp(22px,3vw,34px);
   transition:border-color .35s var(--ease),box-shadow .35s var(--ease);
 }
 .paper::after{
@@ -273,6 +273,7 @@ h1,h2,h3,p{margin:0}
 .paper--interactive:hover .arrow-btn{border-color:rgba(124,140,255,.45);background:rgba(124,140,255,.14);color:var(--accent-soft);transform:translate(2px,-2px)}
 .paper--interactive:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .paper__title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.paper__title-row .arrow-btn{align-self:flex-start;flex-shrink:0;margin-top:2px}
 .paper__body{display:flex;flex-direction:column;gap:16px;min-width:0;position:relative;z-index:1}
 .pills{display:flex;gap:8px;flex-wrap:wrap}
 .pill{
@@ -295,18 +296,24 @@ h1,h2,h3,p{margin:0}
 .tag--mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted)}
 .tag--accent{border-color:rgba(124,140,255,.2);background:rgba(124,140,255,.08);color:var(--accent-soft);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
 
+.paper__actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
 .pipeline{position:relative;z-index:1;padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
-.pipeline__label{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.pipeline__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.pipeline__label{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);margin:0}
+.pipeline__badge{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--accent-soft);background:rgba(124,140,255,.1);padding:2px 7px;border-radius:4px;border:1px solid rgba(124,140,255,.22)}
 .agent{
   border:1px solid rgba(124,140,255,.18);background:rgba(124,140,255,.07);border-radius:9px;
-  padding:10px 12px;transition:border-color .3s var(--ease),background .3s var(--ease)
+  padding:9px 11px;transition:border-color .3s var(--ease),background .3s var(--ease)
 }
 .paper:hover .agent{border-color:rgba(124,140,255,.3);background:rgba(124,140,255,.1)}
-.agent__tag{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted)}
-.agent__name{display:block;font-size:13px;font-weight:500;margin-top:3px;color:var(--text)}
-.pipeline__link{display:flex;justify-content:center;padding-block:6px}
-.pipeline__link i{width:1px;height:12px;background:rgba(124,140,255,.3)}
-.pipeline__foot{margin-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-soft);text-align:center}
+.agent--engine{border-color:rgba(61,220,151,.24);background:rgba(61,220,151,.07)}
+.paper:hover .agent--engine{border-color:rgba(61,220,151,.42);background:rgba(61,220,151,.12)}
+.agent__tag{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted)}
+.agent__name{display:block;font-size:13px;font-weight:600;margin-top:2px;color:var(--text);line-height:1.25}
+.agent__sub{display:block;font-size:11.5px;color:var(--text-2);margin-top:2px;line-height:1.35}
+.pipeline__link{display:flex;justify-content:center;padding-block:5px}
+.pipeline__link i{width:1px;height:10px;background:rgba(124,140,255,.3)}
+.pipeline__foot{margin-top:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--accent-soft);text-align:center}
 
 /* ============================================================
    Bento / Projects
@@ -467,32 +474,28 @@ h1,h2,h3,p{margin:0}
 .icon-btn.is-copied .icon-copy{display:none}
 .icon-btn.is-copied .icon-check{display:block}
 
-.qr-card{
+.resume-hub,.qr-card{
   display:flex;flex-direction:column;justify-content:space-between;gap:16px;
   padding:clamp(20px,2.2vw,26px);border:1px solid rgba(255,255,255,.075);border-radius:var(--radius);overflow:hidden;
   background:
     radial-gradient(90% 110% at 100% 100%,rgba(124,140,255,.1),transparent 70%),
     var(--surface);
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease);
 }
-.qr-card__top{display:flex;align-items:center;gap:16px}
-.qr-frame{
-  width:108px;height:108px;flex:none;padding:6px;border-radius:10px;background:#fff;overflow:hidden;
-  box-shadow:0 12px 30px -18px rgba(0,0,0,.9);
+.resume-hub:hover,.qr-card:hover{border-color:rgba(124,140,255,.32);box-shadow:0 16px 40px -20px rgba(0,0,0,.7)}
+.resume-hub__top{display:flex;align-items:center;gap:14px}
+.resume-hub__icon{
+  width:44px;height:44px;flex:none;display:grid;place-items:center;border-radius:11px;
+  background:rgba(124,140,255,.12);border:1px solid rgba(124,140,255,.3);color:var(--accent-soft);
 }
-.qr-frame img{width:100%;height:100%;object-fit:contain;border-radius:4px;image-rendering:pixelated}
-.qr-card__text{display:flex;flex-direction:column;gap:3px;min-width:0}
-.qr-card__title{font-size:15px;font-weight:600;letter-spacing:-.02em}
-.qr-card__file{font-family:var(--mono);font-size:12px;color:var(--dim)}
-.qr-card__desc{font-size:13px;line-height:1.65;color:var(--muted);text-wrap:pretty}
-.qr-card__rule{height:1px;background:var(--line-soft)}
-.download{
-  display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 14px;border-radius:9px;
-  border:1px solid var(--line);background:rgba(255,255,255,.03);
-  font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-2);
-  transition:background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);
-}
-.download .icon{width:12px;height:12px}
-.download:hover{background:rgba(124,140,255,.12);border-color:rgba(124,140,255,.4);color:var(--accent-soft)}
+.resume-hub__icon .icon{width:22px;height:22px}
+.resume-hub__text{display:flex;flex-direction:column;gap:3px;min-width:0}
+.resume-hub__title{font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--text);margin:0}
+.resume-hub__meta{font-family:var(--mono);font-size:12px;color:var(--dim);margin:0}
+.resume-hub__desc{font-size:13.5px;line-height:1.65;color:var(--muted);text-wrap:pretty;margin:0}
+.resume-hub__rule{height:1px;background:var(--line-soft)}
+.resume-hub__actions{display:flex;flex-direction:column;gap:10px}
+.resume-hub__actions .btn{justify-content:center;width:100%}
 
 /* ============================================================
    Footer
@@ -655,7 +658,7 @@ h1,h2,h3,p{margin:0}
   .wrap{max-width:none;padding-inline:0}
   .hero{grid-template-columns:1fr;padding-top:0}
   .hero h1{font-size:40pt}
-  .paper,.card,.channels,.qr-card{border:1px solid var(--line);background:#fff!important;box-shadow:none!important;break-inside:avoid}
+  .paper,.card,.channels,.qr-card,.resume-hub{border:1px solid var(--line);background:#fff!important;box-shadow:none!important;break-inside:avoid}
   .paper::after{display:none}
   .bento__row,.contact-row{grid-template-columns:1fr 1fr}
   .card{min-height:0}
@@ -816,16 +819,48 @@ h1,h2,h3,p{margin:0}
           <span class="tag">AI Scaffolding</span>
           <span class="tag">Peer-Reviewed</span>
         </div>
+        <div class="paper__actions">
+          <a class="btn btn--primary" href="Personalized_Agent_Final.pdf" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Read Research Paper (PDF)</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="Personalized_Agent_Final.pdf" download="Personalized_Agent_Final.pdf">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download PDF</span>
+          </a>
+        </div>
       </div>
 
       <div class="pipeline" aria-hidden="true">
-        <p class="pipeline__label">Agent topology</p>
-        <div class="agent"><span class="agent__tag">Agent 01</span><span class="agent__name">Trajectory diagnosis</span></div>
+        <div class="pipeline__head">
+          <p class="pipeline__label">Agent topology</p>
+          <span class="pipeline__badge">4 Components</span>
+        </div>
+        <div class="agent">
+          <span class="agent__tag">Agent 01 // Analysis</span>
+          <span class="agent__name">Learner Analysis Agent</span>
+          <span class="agent__sub">Misconceptions, errors &amp; difficulty</span>
+        </div>
         <div class="pipeline__link"><i></i></div>
-        <div class="agent"><span class="agent__tag">Agent 02</span><span class="agent__name">Difficulty calibration</span></div>
+        <div class="agent">
+          <span class="agent__tag">Agent 02 // Evaluation</span>
+          <span class="agent__name">Assessment Agent</span>
+          <span class="agent__sub">Response score &amp; next question</span>
+        </div>
         <div class="pipeline__link"><i></i></div>
-        <div class="agent"><span class="agent__tag">Agent 03</span><span class="agent__name">Contextual scaffolding</span></div>
-        <p class="pipeline__foot">Real-time / adaptive loop</p>
+        <div class="agent">
+          <span class="agent__tag">Agent 03 // Scaffolding</span>
+          <span class="agent__name">Tutor / Remediation Agent</span>
+          <span class="agent__sub">Targeted hints; skipped on challenge</span>
+        </div>
+        <div class="pipeline__link"><i></i></div>
+        <div class="agent agent--engine">
+          <span class="agent__tag">Core // Rule-Based</span>
+          <span class="agent__name">Deterministic Decision Engine</span>
+          <span class="agent__sub">Mastery update &amp; action routing</span>
+        </div>
+        <p class="pipeline__foot">State-based selective execution loop</p>
       </div>
     </article>
   </section>
@@ -1032,23 +1067,31 @@ h1,h2,h3,p{margin:0}
         <p class="channels__note"><i aria-hidden="true"></i>Based in Dubai / open to relocation &amp; remote</p>
       </div>
 
-      <div class="qr-card" data-reveal style="--d:.1s">
-        <div class="qr-card__top">
-          <div class="qr-frame">
-            <img src="portfolio_qr.png" alt="QR code linking to Joel Lal's portfolio" width="96" height="96" loading="lazy" />
+      <div class="resume-hub" data-reveal style="--d:.1s">
+        <div class="resume-hub__top">
+          <div class="resume-hub__icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
-          <div class="qr-card__text">
-            <p class="micro">Portfolio QR</p>
-            <p class="qr-card__title">Scan on mobile</p>
-            <p class="qr-card__file">portfolio_qr.png</p>
+          <div class="resume-hub__text">
+            <p class="micro">Curriculum Vitae // Resume</p>
+            <h3 class="resume-hub__title">Career Fair &amp; Technical Resumes</h3>
+            <p class="resume-hub__meta">Updated November 2026 / ATS-friendly</p>
           </div>
         </div>
-        <p class="qr-card__desc">Point any camera app at the code to open the live portfolio on mobile. Print-ready for your CV.</p>
-        <div class="qr-card__rule" aria-hidden="true"></div>
-        <a class="download" href="portfolio_qr.png" download="portfolio_qr.png">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-          Download asset for CV
-        </a>
+        <p class="resume-hub__desc">Download formatted, recruiter-ready PDF resumes tailored for computer science, multi-agent systems, and software engineering roles.</p>
+        <div class="resume-hub__rule" aria-hidden="true"></div>
+        <div class="resume-hub__actions">
+          <a class="btn btn--primary" href="Joel_Lal_Resume_1Page_CareerFair.pdf" download="Joel_Lal_Resume_1Page_CareerFair.pdf" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Download 1-Page CV (PDF)</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="Joel_Lal_Resume_2Page_CareerFair.pdf" download="Joel_Lal_Resume_2Page_CareerFair.pdf" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Download Full 2-Page CV (PDF)</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1087,16 +1130,18 @@ h1,h2,h3,p{margin:0}
       origin: "ITT 2026 Conference Paper",
       status: "Peer-Reviewed / In Publication",
       statusType: "green",
-      summary: "An autonomous multi-agent orchestration architecture utilizing specialized collaborative LLM agents to dynamically evaluate student learning trajectories, calibrate problem difficulty in real time, and deliver adaptive pedagogical scaffolding without solution leakage.",
+      paperUrl: "Personalized_Agent_Final.pdf",
+      summary: "A lightweight multi-agent framework for personalised learning support where a deterministic, rule-based decision engine uses the learner's state to select instructional actions and selectively activate only the required agents, minimizing resource consumption.",
       highlights: [
-        "Tri-Agent Modular Topology: Agent 01 (Trajectory Diagnosis) maps competency gaps against standardized knowledge graphs; Agent 02 (Difficulty Calibration) dynamically adjusts problem complexity based on cognitive load; Agent 03 (Contextual Scaffolding) delivers progressive, Socratic hints without revealing direct answers.",
-        "Prompt Strategy & Task Decomposition: Systematically evaluated chain-of-thought, role-constrained, and least-to-most prompting techniques across foundation models to minimize inter-agent coordination latency.",
-        "Hallucination Mitigation: Implemented strict cross-agent state verification where the Scaffolding Agent cross-references the Diagnosis Agent's evaluation state before emitting pedagogical feedback.",
-        "Empirical Evaluation: Benchmark simulations across diverse student cohort profiles demonstrated high pedagogical relevance, intervention precision, and response consistency."
+        "Learner Analysis Agent: Analyzes student learning misconceptions, error patterns, and calculates recommended difficulty level based on historical progress.",
+        "Assessment Agent: Evaluates learner response accuracy, assigns response scores, generates pedagogical feedback, and selects the next assessment question.",
+        "Tutor / Remediation Agent: Delivers targeted scaffolding and remediation explanations, dynamically skipped during challenge actions to conserve compute.",
+        "Deterministic Decision Engine: Executes mastery update rules (initial mastery 0.50) and state-based action routing across four modes: explain, practice, remediate, and challenge.",
+        "Empirical Benchmark & LLM Evaluation: Paired comparison across 84 evaluated interactions using Gemma 3 4B execution model and Gemma 3 12B automated LLM judge, demonstrating significant reductions in LLM calls, token usage, and latency."
       ],
-      techStack: ["Multi-Agent Orchestration", "Foundation LLMs", "Prompt Decomposition", "Socratic Scaffolding", "Adaptive Learning", "Educational Data Mining"],
+      techStack: ["Multi-Agent Orchestration", "Deterministic Decision Engine", "Selective Agent Activation", "Foundation LLMs (Gemma 3)", "Educational Scaffolding", "Automated LLM Judge"],
       repoUrl: null,
-      statusNotice: "Presented at HCT Dubai — Official Conference Proceedings Currently in Publication"
+      statusNotice: "Presented at Higher Colleges of Technology (HCT Dubai) — Official Conference Proceedings In Publication"
     },
     fxsonic: {
       id: "fxsonic",
@@ -1186,9 +1231,9 @@ h1,h2,h3,p{margin:0}
     space42: {
       id: "space42",
       name: "Space42 AI Job Portal",
-      category: "06 / AI Recruitment & Web Security",
+      category: "06 / Asynchronous Prototype",
       origin: "GDG Hackathon (University of Birmingham Dubai)",
-      status: "Competition Prototype (Award Finalist)",
+      status: "Hackathon Project",
       statusType: "accent",
       summary: "AI-powered recruitment engine featuring role-based candidate routing, asynchronous resume parsing, and a secure upload gateway.",
       highlights: [
@@ -1198,7 +1243,7 @@ h1,h2,h3,p{margin:0}
       ],
       techStack: ["Python", "Flet UI", "SQLite", "Asyncio / Worker Threads", "Input Sanitization"],
       repoUrl: null,
-      statusNotice: "Hackathon Competition Prototype // Award Finalist"
+      statusNotice: "GDG Hackathon (University of Birmingham Dubai) // Asynchronous Prototype"
     }
   };
 
@@ -1225,7 +1270,13 @@ h1,h2,h3,p{margin:0}
     }).join("");
 
     var actionHtml = "";
-    if (p.repoUrl) {
+    if (p.paperUrl) {
+      actionHtml = '<a class="btn btn--primary" href="' + escapeHtml(p.paperUrl) + '" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Read Research Paper (PDF)</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>' +
+        '<a class="btn btn--ghost" href="' + escapeHtml(p.paperUrl) + '" download="Personalized_Agent_Final.pdf"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Download PDF</span></a>';
+      if (p.statusNotice) {
+        actionHtml += '<div class="modal-badge-notice" style="margin-top:12px;width:100%"><span class="badge__dot" style="background:' + dotColor + ';"></span><span>' + escapeHtml(p.statusNotice) + '</span></div>';
+      }
+    } else if (p.repoUrl) {
       actionHtml = '<a class="btn btn--primary" href="' + escapeHtml(p.repoUrl) + '" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><span>View Repository on GitHub</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>';
     } else {
       actionHtml = '<div class="modal-badge-notice"><span class="badge__dot" style="background:' + dotColor + ';"></span><span>' + escapeHtml(p.statusNotice || "Internal Prototype") + '</span></div>';
@@ -1322,10 +1373,12 @@ h1,h2,h3,p{margin:0}
   document.querySelectorAll("[data-research]").forEach(function (el) {
     var id = el.getAttribute("data-research");
     el.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
       e.preventDefault();
       openModal(id, el, true);
     });
     el.addEventListener("keydown", function (e) {
+      if (e.target.closest("a")) return;
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         openModal(id, el, true);
