@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Projects &amp; Systems Architecture — Joel Lal</title>
-<meta name="description" content="Complete engineering inventory and architecture specifications for Joel Lal's systems, open-source DSP tooling, multi-agent frameworks, and computer vision pipelines." />
+<meta name="description" content="Complete engineering inventory and architecture specifications for Joel Lal's systems, desktop software, multi-agent frameworks, and computer vision pipelines." />
 <meta name="author" content="Joel Lal" />
 <meta name="theme-color" content="#090d16" />
 <meta name="color-scheme" content="dark" />
@@ -12,7 +12,7 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Projects &amp; Systems Architecture — Joel Lal" />
-<meta property="og:description" content="Engineering inventory across autonomous agents, DSP audio pipelines, automated batch workflow engines, and cybersecurity sandboxes." />
+<meta property="og:description" content="Engineering inventory across autonomous agents, desktop audio software, multiprocessing engines, and cybersecurity sandboxes." />
 <meta property="og:url" content="https://bluwarrior.github.io/projects.html" />
 <meta property="og:image" content="portfolio_qr.png" />
 <meta name="twitter:card" content="summary" />
@@ -271,12 +271,12 @@ h1,h2,h3,p{margin:0}
 .chip--red{border-color:rgba(255,107,107,.24);background:rgba(255,107,107,.08);color:#ffa0a0}
 .tags{display:flex;gap:7px;flex-wrap:wrap}
 
-/* 1. FXsonic waveform */
+/* 1. FXsonic acoustic fingerprint */
 .wave-label{display:flex;justify-content:space-between;gap:12px}
 .wave{display:flex;align-items:center;gap:3px;height:140px}
 .wave span{flex:1;min-height:6px;border-radius:2px;background:#8fa0ff;min-width:2px}
 
-/* 2. FXbatch desktop status monitor */
+/* 2. FXbatch multiprocessing monitor */
 .console{background:#05080f;border:1px solid var(--line-soft);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:5px;overflow:hidden}
 .console p{font-family:var(--mono);font-size:12px;line-height:1.55;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .console .c-cmd{color:var(--accent-soft)}
@@ -534,7 +534,7 @@ h1,h2,h3,p{margin:0}
       
       <h1 id="catalog-title">Systems &amp; Architecture Archive</h1>
       <p class="catalog-hero__subtitle">
-        Comprehensive engineering catalog across autonomous multi-agent systems, open-source audio DSP, automated workflow engines, touchless vision interfaces, and security sandboxes engineered by <em>Joel Lal</em>.
+        Comprehensive engineering catalog across autonomous multi-agent systems, desktop software, multiprocessing engines, touchless vision interfaces, and security sandboxes engineered by <em>Joel Lal</em>.
       </p>
 
       <div class="strip micro">
@@ -560,24 +560,24 @@ h1,h2,h3,p{margin:0}
       <article class="card card--accent card--interactive" data-project="fxsonic" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open FXsonic specifications" data-reveal style="--d:.04s">
         <div class="card__head">
           <div class="card__eyebrow-row">
-            <p class="micro">Audio Engine &amp; Desktop GUI</p>
+            <p class="micro">Audio Tagging &amp; Fingerprinting</p>
             <span class="chip chip--accent">Active Open Source</span>
           </div>
           <div class="card__title-row">
             <h3>FXsonic</h3>
             <span class="arrow-btn" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="M9 21H3v-6"/><path d="m3 21 7-7"/></svg></span>
           </div>
-          <p class="card__desc">High-performance audio processing suite and graphical DSP manipulation application packaged as a standalone desktop GUI application (.exe). Signal transforms, batch audio normalization, and non-blocking playback.</p>
+          <p class="card__desc">Desktop audio file tagging and album metadata management application utilizing Chromaprint acoustic fingerprints for automated MusicBrainz metadata resolution, ID3v2.4 tagging, and persistent SQLite caching.</p>
         </div>
         <div class="card__foot">
-          <div class="wave-label micro"><span>Signal preview</span><span>Waveform / normalized</span></div>
+          <div class="wave-label micro"><span>Acoustic Fingerprint</span><span>Chromaprint / fpcalc spectrum</span></div>
           <div class="wave" id="wave" aria-hidden="true"></div>
           <div class="tags">
             <span class="chip chip--accent">Python</span>
-            <span class="chip chip--accent">Audio DSP</span>
-            <span class="chip chip--accent">NumPy</span>
+            <span class="chip chip--accent">Chromaprint</span>
+            <span class="chip chip--accent">AcoustID</span>
             <span class="chip chip--accent">Desktop GUI</span>
-            <span class="chip chip--accent">Standalone Executable (.exe)</span>
+            <span class="chip chip--accent">SQLite</span>
             <span class="chip chip--accent">Open Source</span>
           </div>
         </div>
@@ -587,28 +587,28 @@ h1,h2,h3,p{margin:0}
       <article class="card card--interactive" data-project="fxbatch" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open FXbatch specifications" data-reveal style="--d:.08s">
         <div class="card__head">
           <div class="card__eyebrow-row">
-            <p class="micro">Desktop Automation GUI</p>
+            <p class="micro">Multiprocessing Image Optimizer</p>
             <span class="chip chip--accent">Active Open Source</span>
           </div>
           <div class="card__title-row">
             <h3>FXbatch</h3>
             <span class="arrow-btn" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="M9 21H3v-6"/><path d="m3 21 7-7"/></svg></span>
           </div>
-          <p class="card__desc">Automated batch processing desktop GUI application engineered for scheduled multi-file conversions, worker thread queue management, and real-time execution telemetry.</p>
+          <p class="card__desc">High-throughput batch image resizing, AVIF conversion, and Windows icon generation using Python's multiprocessing pool across all CPU cores with live in-memory telemetry previews.</p>
         </div>
         <div class="card__foot">
           <div class="console" aria-hidden="true">
-            <p class="c-cmd">App Status :: FXbatch Engine [Active]</p>
-            <p class="c-ok">Task Complete: 128 assets processed</p>
-            <p class="c-dim">Worker Threads: 4 active / Queue idle</p>
+            <p class="c-cmd">Multiprocessing Pool :: All CPU Cores [Active]</p>
+            <p class="c-ok">Throughput: ~48 img/sec (1,000 images in 20.7s)</p>
+            <p class="c-dim">In-Memory BytesIO Preview :: 0 Temp Files Written</p>
           </div>
           <div class="stats" aria-hidden="true">
-            <div class="stat"><b>128</b><span>Jobs Done</span></div>
-            <div class="stat"><b>0</b><span>Errors</span></div>
-            <div class="stat"><b>2.4s</b><span>Avg Task</span></div>
+            <div class="stat"><b>~48</b><span>img / sec</span></div>
+            <div class="stat"><b>1,000</b><span>Batch Size</span></div>
+            <div class="stat"><b>20ms</b><span>UI Polling</span></div>
           </div>
           <div class="tags">
-            <span class="chip">Python</span><span class="chip">System Automation</span><span class="chip">Multi-Threading</span><span class="chip">Desktop GUI</span><span class="chip">Standalone Executable (.exe)</span><span class="chip">Open Source</span>
+            <span class="chip">Python</span><span class="chip">CustomTkinter</span><span class="chip">Multiprocessing</span><span class="chip">Pillow</span><span class="chip">AVIF</span><span class="chip">Open Source</span>
           </div>
         </div>
       </article>
@@ -817,34 +817,36 @@ h1,h2,h3,p{margin:0}
     fxsonic: {
       id: "fxsonic",
       name: "FXsonic",
-      category: "01 / Audio Engine & Desktop GUI",
+      category: "01 / Audio Tagging & Fingerprinting",
       origin: "Open Source Organization (FXcodez)",
       status: "Active Open Source",
       statusType: "accent",
-      summary: "High-performance audio processing suite and graphical DSP manipulation application packaged as a standalone Windows executable (.exe), featuring real-time waveform visualization, signal filtering, and batch audio normalization.",
+      summary: "Desktop audio file tagging and album metadata management application built with Python 3.13 and Microsoft Edge WebView2, utilizing Chromaprint (fpcalc) acoustic fingerprinting, AcoustID/MusicBrainz APIs, ID3v2.4 tag writing, and a persistent SQLite cache (cache.db).",
       highlights: [
-        "Standalone desktop GUI application compiled into a zero-dependency Windows executable (.exe) for immediate local deployment without Python runtime dependencies.",
-        "Non-blocking worker threading decoupling CPU-intensive audio DSP filters and batch normalization passes from the interactive GUI thread.",
-        "Real-time audio waveform visualization and stream manipulation engine optimized for minimal buffer latency."
+        "Standalone desktop GUI application compiled into a zero-dependency Windows executable (.exe) and Inno Setup installer, utilizing Microsoft Edge WebView2 for modern responsive UI rendering.",
+        "Automated acoustic fingerprinting via bundled Chromaprint (fpcalc) binary, querying AcoustID and MusicBrainz APIs for accurate track metadata resolution and Cover Art Archive injection.",
+        "Persistent SQLite fingerprint cache (cache.db) tracking file modification timestamps and hashes to eliminate redundant rescans on unchanged audio files.",
+        "Comprehensive library management supporting multi-format audio intake (.mp3, .flac, .m4a, .ogg, .opus, .wav, .aiff), real-time table sorting/search, title cleaning, and duplicate consolidation."
       ],
-      techStack: ["Python", "Desktop GUI", "Audio DSP", "NumPy", "Multi-Threading", "Standalone Executable (.exe)", "Open Source"],
+      techStack: ["Python 3.13", "Microsoft Edge WebView2", "Chromaprint / fpcalc", "AcoustID", "MusicBrainz", "Mutagen", "SQLite", "ID3v2.4", "Inno Setup", "PyInstaller", "Desktop GUI", "Open Source"],
       repoUrl: "https://github.com/FXcodez/FXsonic",
       statusNotice: null
     },
     fxbatch: {
       id: "fxbatch",
       name: "FXbatch",
-      category: "02 / Desktop Automation GUI",
+      category: "02 / Multiprocessing Image Optimizer",
       origin: "Open Source Organization (FXcodez)",
       status: "Active Open Source",
       statusType: "accent",
-      summary: "Automated batch workflow desktop application packaged as a standalone Windows executable (.exe), engineered for multi-file format conversions, scheduled background processing, and real-time job execution telemetry.",
+      summary: "Multiprocessing batch image optimizer, resizer, and Windows icon converter built with CustomTkinter and Pillow, utilizing Python's multiprocessing pool across CPU cores (~48 img/sec), non-blocking 20ms UI polling, in-memory BytesIO compression previews, AVIF support, and multi-resolution .ico favicon bundle generation.",
       highlights: [
-        "Standalone desktop application packaged as a self-contained Windows executable (.exe) requiring zero local environment configuration.",
-        "Multi-threaded background execution engine featuring asynchronous job queues, automated rollback states, and non-blocking desktop GUI responsiveness during bulk processing.",
-        "Visual status monitor providing real-time job execution telemetry, active queue inspection, and data integrity verification."
+        "High-throughput parallel processing architecture distributing batch image resizing and multi-format conversion (JPEG, PNG, WebP, AVIF, ICO) across all available CPU cores via Python's multiprocessing pool (~48 img/sec).",
+        "Main thread remains completely responsive during heavy batch passes through non-blocking 20ms UI polling and asynchronous worker queue telemetry.",
+        "In-memory sample preview using Pillow BytesIO buffers to calculate live compression ratios, dimensions, and file size estimates without writing temporary files to disk.",
+        "Production asset automation generating multi-resolution Windows icons (.ico 16-256px) and complete web favicon packages (apple-touch-icon, multi-size PNGs) with collision protection and dynamic token naming."
       ],
-      techStack: ["Python", "Desktop GUI", "System Automation", "Multi-Threading", "Standalone Executable (.exe)", "Open Source"],
+      techStack: ["Python", "CustomTkinter", "Multiprocessing", "Pillow", "TkinterDnD2", "AVIF", "In-Memory Telemetry", "Inno Setup", "PyInstaller", "Desktop GUI", "Open Source"],
       repoUrl: "https://github.com/FXcodez/FXbatch",
       statusNotice: null
     },
@@ -1070,7 +1072,7 @@ h1,h2,h3,p{margin:0}
     });
   });
 
-  /* ---------- FXsonic waveform ---------- */
+  /* ---------- FXsonic acoustic fingerprint ---------- */
   var wave = document.getElementById("wave");
   if (wave) {
     var frag = document.createDocumentFragment();

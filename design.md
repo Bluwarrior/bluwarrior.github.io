@@ -133,32 +133,34 @@ Each modal dialog dynamically displays:
 ### Project 1: FXsonic
 - **ID**: `fxsonic`
 - **Display Name**: FXsonic
-- **Category Eyebrow**: 01 / Audio Engine & Desktop GUI
+- **Category Eyebrow**: 01 / Audio Tagging & Fingerprinting
 - **Project Origin**: Open Source Organization (FXcodez)
 - **Status**: Active Open Source
 - **Status Type**: `accent`
-- **Summary**: High-performance audio processing suite and graphical DSP manipulation application packaged as a standalone Windows executable (.exe), featuring real-time waveform visualization, signal filtering, and batch audio normalization.
+- **Summary**: Desktop audio file tagging and album metadata management application built with Python 3.13 and Microsoft Edge WebView2, utilizing Chromaprint (fpcalc) acoustic fingerprinting, AcoustID/MusicBrainz APIs, ID3v2.4 tag writing, and a persistent SQLite cache (cache.db).
 - **Architecture Highlights**:
-  - Standalone desktop GUI application compiled into a zero-dependency Windows executable (.exe) for immediate local deployment without Python runtime dependencies.
-  - Non-blocking worker threading decoupling CPU-intensive audio DSP filters and batch normalization passes from the interactive GUI thread.
-  - Real-time audio waveform visualization and stream manipulation engine optimized for minimal buffer latency.
-- **Tech Stack**: Python, Desktop GUI, Audio DSP, NumPy, Multi-Threading, Standalone Executable (.exe), Open Source
+  - Standalone desktop application packaged as a zero-dependency Windows executable (.exe) and Inno Setup installer, utilizing Microsoft Edge WebView2 for modern responsive UI rendering.
+  - Automated acoustic fingerprinting via bundled Chromaprint (`fpcalc`) binary, querying AcoustID and MusicBrainz APIs for accurate track metadata resolution and Cover Art Archive image injection.
+  - Persistent SQLite fingerprint cache (`cache.db`) storing file modification timestamps and hashes to eliminate redundant scans on unchanged audio files across multi-folder intakes.
+  - Comprehensive library operations including multi-format audio intake (.mp3, .flac, .m4a, .ogg, .opus, .wav, .aiff), real-time table sorting/search, title cleaning, and duplicate consolidation.
+- **Tech Stack**: Python 3.13, Microsoft Edge WebView2, Chromaprint / fpcalc, AcoustID, MusicBrainz, Mutagen, SQLite, ID3v2.4, Inno Setup, PyInstaller, Desktop GUI, Open Source
 - **Repository URL**: `https://github.com/FXcodez/FXsonic`
 - **Action Footer Notice**: None (outbound button to GitHub repository)
 
 ### Project 2: FXbatch
 - **ID**: `fxbatch`
 - **Display Name**: FXbatch
-- **Category Eyebrow**: 02 / Desktop Automation GUI
+- **Category Eyebrow**: 02 / Multiprocessing Image Optimizer
 - **Project Origin**: Open Source Organization (FXcodez)
 - **Status**: Active Open Source
 - **Status Type**: `accent`
-- **Summary**: Automated batch workflow desktop application packaged as a standalone Windows executable (.exe), engineered for multi-file format conversions, scheduled background processing, and real-time job execution telemetry.
+- **Summary**: Multiprocessing batch image optimizer, resizer, and Windows icon converter built with CustomTkinter and Pillow, utilizing Python's multiprocessing pool across CPU cores (~48 img/sec), non-blocking 20ms UI polling, in-memory BytesIO compression previews, AVIF support, and multi-resolution .ico favicon bundle generation.
 - **Architecture Highlights**:
-  - Standalone desktop application packaged as a self-contained Windows executable (.exe) requiring zero local environment configuration.
-  - Multi-threaded background execution engine featuring asynchronous job queues, automated rollback states, and non-blocking desktop GUI responsiveness during bulk processing.
-  - Visual status monitor providing real-time job execution telemetry, active queue inspection, and data integrity verification.
-- **Tech Stack**: Python, Desktop GUI, System Automation, Multi-Threading, Standalone Executable (.exe), Open Source
+  - High-throughput parallel processing architecture distributing batch image resizing and multi-format conversion (JPEG, PNG, WebP, AVIF, ICO) across all available CPU cores via Python's multiprocessing pool (~48 img/sec benchmark).
+  - Main thread remains completely responsive during heavy batch passes through non-blocking 20ms UI polling and asynchronous worker queue telemetry.
+  - In-memory sample preview using Pillow BytesIO buffers to calculate live compression ratios, dimensions, and file size estimates without writing temporary files to disk.
+  - Production asset automation generating multi-resolution Windows icons (.ico 16-256px) and complete web favicon packages (apple-touch-icon, multi-size PNGs) with collision protection and dynamic token naming.
+- **Tech Stack**: Python, CustomTkinter, Multiprocessing, Pillow, TkinterDnD2, AVIF, In-Memory Telemetry, Inno Setup, PyInstaller, Desktop GUI, Open Source
 - **Repository URL**: `https://github.com/FXcodez/FXbatch`
 - **Action Footer Notice**: None (outbound button to GitHub repository)
 
